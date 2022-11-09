@@ -4,6 +4,8 @@ This is a project for the Datastructures and Algorithms project course in the Un
 
 The goal is to compare two shortest path algorithms, IDA* and Dijksta.
 
+[Definition document](https://github.com/roosahut/tiralabra/blob/main/documentation/definitiondocument.md)
+
 ### Weekly reports
 
-[week 1](https://github.com/roosahut/tiralabra/blob/main/documentation/weeklyreports/weeklyreport1.md)
+[Week 1](https://github.com/roosahut/tiralabra/blob/main/documentation/weeklyreports/weeklyreport1.md)
