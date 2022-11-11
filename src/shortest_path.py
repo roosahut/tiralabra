@@ -1,6 +1,6 @@
 import math
 from math import radians, cos, sin, asin, sqrt
-from queue import PriorityQueue
+import heapq
 
 EARTH_RADIUS = 6371000
 
@@ -13,11 +13,10 @@ def dijkstra(graph, start, end):
     costs[start] = 0
     paths[start] = str(start)
 
-    pq = PriorityQueue()
-    pq.put((costs[start], start))
+    min_dist = [(costs[start], start)]
 
-    while not pq.empty():
-        (length, node) = pq.get()
+    while min_dist:
+        (length, node) = heapq.heappop(min_dist)
 
         if node in visited:
             continue
@@ -32,9 +31,9 @@ def dijkstra(graph, start, end):
                 costs[neighbour] = new_length
                 paths[neighbour] = paths[node] + \
                     " " + str(neighbour)
-                pq.put((new_length, neighbour))
+                heapq.heappush(min_dist, (new_length, neighbour))
 
-    return [int(n) for n in paths[end].strip().split(" ")]
+    return ([int(n) for n in paths[end].strip().split(" ")], costs[end])
 
 
 def count_distance(graph, start, end):
@@ -44,7 +43,7 @@ def count_distance(graph, start, end):
     end_lat = radians(graph.nodes[end]['y'])
 
     distance_lon = end_lon - start_lon
-    distance_lat = end_lon - start_lat
+    distance_lat = end_lat - start_lat
     a = sin(distance_lat / 2)**2 + cos(start_lat) * \
         cos(end_lat) * sin(distance_lon / 2)**2
     b = 2 * asin(sqrt(a))

@@ -20,13 +20,13 @@ end_node = ox.nearest_nodes(G, end[1], end[0])
 
 #print(start_node, end_node)
 
-my_dijkstra = dijkstra(G, start_node, end_node)
-# print(my_dijstra)
+(shortest_path, cost) = dijkstra(G, start_node, end_node)
+print(cost)
 
 # Shows the route and graph with osmnx
 #shortest_route_map = ox.plot_graph_route(G, my_dijstra)
 # shortest_route_map
 
 # Shows the map and the route with folium and then creates a html file that can be opened
-shortest_route_map = ox.plot_route_folium(G, my_dijkstra)
+shortest_route_map = ox.plot_route_folium(G, shortest_path)
 shortest_route_map.save('index.html')
