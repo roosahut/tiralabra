@@ -1,9 +1,9 @@
 import osmnx as ox
-from shortest_path import dijkstra
+from shortest_path import dijkstra, ida_star
 
 address = 'Hämeentie 33, Helsinki, Finland'
 G = ox.graph_from_address(
-    address, network_type='walk', dist=2000, simplify=False)
+    address, network_type='walk', dist=2000, simplify=True)
 
 # Shows the graph with osmnx
 # fig, ax = ox.plot_graph(G, node_color='red', node_size=15,
@@ -22,6 +22,8 @@ end_node = ox.nearest_nodes(G, end[1], end[0])
 
 (shortest_path, cost) = dijkstra(G, start_node, end_node)
 print(cost)
+
+#print(ida_star(G, start_node, end_node))
 
 # Shows the route and graph with osmnx
 #shortest_route_map = ox.plot_graph_route(G, my_dijstra)
