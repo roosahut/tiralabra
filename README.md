@@ -9,3 +9,5 @@ The goal is to compare two shortest path algorithms, IDA* and Dijksta.
 ### Weekly reports
 
 [Week 1](https://github.com/roosahut/tiralabra/blob/main/documentation/weeklyreports/weeklyreport1.md)
+
+[Week 2](https://github.com/roosahut/tiralabra/blob/main/documentation/weeklyreports/weeklyreport2.md)
