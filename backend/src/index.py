@@ -31,4 +31,4 @@ print(cost)
 
 # Shows the map and the route with folium and then creates a html file that can be opened
 shortest_route_map = ox.plot_route_folium(G, shortest_path)
-shortest_route_map.save('index.html')
+shortest_route_map.save('route.html')

@@ -2,5 +2,5 @@ __pycache__
 .pytest_cache
 htmlcov
 pytest_cache
-index.html
+route.html
 cache
