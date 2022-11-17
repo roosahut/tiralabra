@@ -1,6 +1,7 @@
-import { useState, useEffect, useRef } from 'react'
-import { MapContainer, TileLayer, Marker, Popup, Polyline } from 'react-leaflet'
+import { useState, useEffect } from 'react'
+import { MapContainer, TileLayer, Polyline } from 'react-leaflet'
 import getRoute from './services/routes'
+import Markers from './components/markers'
 
 const App = () => {
   const [route, setRoute] = useState([])
@@ -9,7 +10,7 @@ const App = () => {
     getRoute().then(array => {
       setRoute(array.route)
     })
-  })
+  }, [])
 
   const redOptions = { color: 'red' }
 
@@ -19,19 +20,10 @@ const App = () => {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={[60.184136, 24.949670]}>
-        <Popup>
-          Kallion kirkko
-        </Popup>
-      </Marker>
-      <Marker position={[60.186760, 24.978402]}>
-        <Popup>
-          REDI
-        </Popup>
-      </Marker>
       <Polyline pathOptions={redOptions} positions={route} />
+      <Markers />
     </MapContainer>
-  );
+  )
 }
 
 export default App
