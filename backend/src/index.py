@@ -1,5 +1,5 @@
 import osmnx as ox
-from shortest_path import dijkstra, ida_star
+from src.shortest_path import dijkstra, ida_star
 
 address = 'Hämeentie 33, Helsinki, Finland'
 G = ox.graph_from_address(
