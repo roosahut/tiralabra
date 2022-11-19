@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from src.index import route_in_lonlat
+from src.index import get_shortest_path
 
 app = FastAPI()
 
@@ -20,4 +20,11 @@ app.add_middleware(
 
 @app.get('/api/route')
 def get_route() -> dict:
-    return {'route': route_in_lonlat}
+    start = (60.184136, 24.949670)
+    end = (60.186760, 24.978402)
+    route = get_shortest_path(start, end)
+    return {'route': route}
+
+
+# @app.post('/api/route')
+# def get_route() -> dict:
