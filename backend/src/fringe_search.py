@@ -31,9 +31,8 @@ def fringe_search(graph, start, end):
                         continue
                 # print(child)
                 # print(fringe)
-                if len(fringe) > 0:
-                    if child in fringe:
-                        fringe.remove(child)
+                if child in fringe:
+                    fringe.remove(child)
                 fringe = insert_child_after_node(fringe, node, child)
                 cache[child] = (g_child, node)
             fringe.remove(node)
@@ -60,10 +59,7 @@ def insert_child_after_node(fringe, node, child):
     for i in range(len(fringe)):
         if fringe[i] == node:
             index = i + 1
-            if index == len(fringe):
-                fringe.append(child)
-            else:
-                fringe.insert(index, child)
+            fringe.insert(index, child)
             break
     #print(f'new fringe: {fringe}')
     return fringe

@@ -12,13 +12,15 @@ def get_shortest_path(start, end):
     start_node = get_openstreetmap_node_from_latlng(G, start)
     end_node = get_openstreetmap_node_from_latlng(G, end)
 
-    shortest_path = fringe_search(G, start_node, end_node)
+    path_fringe = fringe_search(G, start_node, end_node)
+    (path_dijkstra, cost) = dijkstra(G, start_node, end_node)
     # print(cost)
 
-    route_in_latlng = change_node_route_to_latlng(G, shortest_path)
+    fringe_in_latlng = change_node_route_to_latlng(G, path_fringe)
+    dijkstra_inlatlng = change_node_route_to_latlng(G, path_dijkstra)
     # print(route_in_latlng)
 
-    return route_in_latlng
+    return fringe_in_latlng, dijkstra_inlatlng
 
 
 #G = pickle.load(open('data/helsinki_graph.pickle', 'rb'))

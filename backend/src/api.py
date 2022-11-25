@@ -12,7 +12,8 @@ class RoutePoints(BaseModel):
 
 
 class Route(BaseModel):
-    route: list
+    fringe: list
+    dijkstra: list
 
 
 origins = [
@@ -32,5 +33,7 @@ app.add_middleware(
 @app.post('/api/route')
 def find_route(route_params: RoutePoints) -> Route:
     print(f'got params {route_params}')
-    route = get_shortest_path(route_params.start, route_params.end)
-    return {'route': route}
+    (fringe, dijkstra) = get_shortest_path(
+        route_params.start, route_params.end)
+    return {'fringe': fringe,
+            'dijkstra': dijkstra}

@@ -4,7 +4,8 @@ import findRoute from './services/routes'
 
 
 const App = () => {
-  const [route, setRoute] = useState([])
+  const [fringe, setFringe] = useState([])
+  const [dijkstra, setDijkstra] = useState([])
   const [markers, setMarkers] = useState([])
 
   const Markers = () => {
@@ -18,13 +19,15 @@ const App = () => {
             end: newMarker
           }
           findRoute(pointsObject)
-            .then(returnedRoute => {
-              setRoute(returnedRoute)
+            .then(returnedRoutes => {
+              setFringe(returnedRoutes.fringe)
+              setDijkstra(returnedRoutes.dijkstra)
             })
         } else if (markers.length === 2) {
           const newMarker = [event.latlng.lat, event.latlng.lng]
           setMarkers([newMarker])
-          setRoute([])
+          setFringe([])
+          setDijkstra([])
         } else if (markers.length === 0) {
           const newMarker = [event.latlng.lat, event.latlng.lng]
           setMarkers([...markers, newMarker])
@@ -34,6 +37,7 @@ const App = () => {
   }
 
   const redOptions = { color: 'red' }
+  const blueOptions = { color: 'blue' }
 
   return (
     <MapContainer center={[60.184136, 24.949670]} zoom={12} scrollWheelZoom={false}>
@@ -41,7 +45,8 @@ const App = () => {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Polyline pathOptions={redOptions} positions={route} />
+      <Polyline pathOptions={redOptions} positions={dijkstra} />
+      <Polyline pathOptions={blueOptions} positions={fringe} />
       <Markers />
       {markers.map(marker =>
         <Marker key={marker} position={marker}>
