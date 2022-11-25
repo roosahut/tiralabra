@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from src.index import get_shortest_path
+from index import get_shortest_path
 
 app = FastAPI()
 

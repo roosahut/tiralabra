@@ -1,6 +1,6 @@
 import heapq
 import math
-from src.count_distance import count_distance
+from count_distance import count_distance
 
 
 def dijkstra(graph, start, end):

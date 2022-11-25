@@ -1,6 +1,9 @@
 import pickle
-from src.dijkstra import dijkstra
-from src.latlng_node_changes import get_openstreetmap_node_from_latlng, change_node_route_to_latlng
+from dijkstra import dijkstra
+from latlng_node_changes import get_openstreetmap_node_from_latlng, change_node_route_to_latlng
+from graph import Graph
+from idastar import ida_star
+from fringe_search import fringe_search
 
 
 def get_shortest_path(start, end):
@@ -9,13 +12,27 @@ def get_shortest_path(start, end):
     start_node = get_openstreetmap_node_from_latlng(G, start)
     end_node = get_openstreetmap_node_from_latlng(G, end)
 
-    (shortest_path, cost) = dijkstra(G, start_node, end_node)
-    print(cost)
+    shortest_path = fringe_search(G, start_node, end_node)
+    # print(cost)
 
     route_in_latlng = change_node_route_to_latlng(G, shortest_path)
     # print(route_in_latlng)
 
     return route_in_latlng
+
+
+#G = pickle.load(open('data/helsinki_graph.pickle', 'rb'))
+
+#start = (60.184136, 24.949670)
+#end = (60.186760, 24.978402)
+
+#start_node = get_openstreetmap_node_from_latlng(G, start)
+#end_node = get_openstreetmap_node_from_latlng(G, end)
+
+#print(fringe_search(G, start_node, end_node))
+#print(ida_star(G, start_node, end_node))
+
+#graph = Graph(G)
 
 #print(ida_star(G, start_node, end_node))
 

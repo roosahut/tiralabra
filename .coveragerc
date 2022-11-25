@@ -1,0 +1,3 @@
+[run]
+source = backend/src
+omit = backend/src/tests/**, backend/src/api.py
