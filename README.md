@@ -10,7 +10,7 @@ I will de deploying the project to fly.io but right now you can use the app loca
 
 First you'll need to clone this repository.
 
-Then to run backend firts you'll need to run these commmands in the root of the repo:
+Then to run backend first you'll need to run these commands in the root of the repo:
 ```bash
 poetry install
 ```
@@ -19,7 +19,7 @@ poetry run python3 backend/src/main.py
 ```
 This will open the backend in localhost:8000.
 
-And then to run the frontend open another treminal and go to the frontend folder and run these commands:
+And then to run the frontend open another terminal and go to the frontend folder and run these commands:
 ```bash
 npm install
 ```
@@ -34,6 +34,7 @@ You'll have to wait a bit, but the app will give you a route between the given p
 After the routes have shown up you can choose another points in Helsinki and see the route between them.
 
 I will be adding another features to the frontend but so far that is all there is.
+I also don't have tests yet which is a problem and will be the next thing I'm doing.
 
 ### Documentation
 
