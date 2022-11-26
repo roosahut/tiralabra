@@ -4,7 +4,7 @@ from count_distance import count_distance
 
 def fringe_search(graph, start, end):
     fringe = [start]
-    cache = {n: None for n in graph.nodes}
+    cache = {node: None for node in graph.nodes}
     cache[start] = (0, None)
     flimit = count_distance(graph, start, end)
     found = False
@@ -19,18 +19,16 @@ def fringe_search(graph, start, end):
                 continue
             if node == end:
                 found = True
+                cost = g
                 break
-            for edge in edges(graph, node, end):
+            node_object = graph.nodes[node]
+            for edge in sort_edges(graph, node_object, end):
                 child = edge[0]
-                g_child = g + count_distance(graph, node, child)
-                # print(cache)
-                # print(cache[child])
+                g_child = g + edge[2]
                 if cache[child] != None:
                     (g_cached, parent) = cache[child]
                     if g_child >= g_cached:
                         continue
-                # print(child)
-                # print(fringe)
                 if child in fringe:
                     fringe.remove(child)
                 fringe = insert_child_after_node(fringe, node, child)
@@ -41,7 +39,7 @@ def fringe_search(graph, start, end):
     if found == True:
         path = []
         reverse_path(cache, end, path)
-        return path
+        return path, cost
     else:
         return False
 
@@ -54,23 +52,20 @@ def reverse_path(cache, node, path):
 
 
 def insert_child_after_node(fringe, node, child):
-    # print(fringe)
-    #print(f'node: {node} child: {child}')
     for i in range(len(fringe)):
         if fringe[i] == node:
             index = i + 1
             fringe.insert(index, child)
             break
-    #print(f'new fringe: {fringe}')
     return fringe
 
 
-def edges(graph, node, end):
+def sort_edges(graph, node_object, end):
     estimates = []
-    for edge in graph.edges(node):
-        node = edge[1]
-        h = count_distance(graph, node, end)
-        estimates.append((node, h))
+    for edge in node_object.neighbours:
+        neighbour = edge['id']
+        length_to_node = edge['length']
+        h = count_distance(graph, neighbour, end)
+        estimates.append((neighbour, h, length_to_node))
     estimates.sort(key=lambda a: a[1])
-    # print(estimates)
     return estimates

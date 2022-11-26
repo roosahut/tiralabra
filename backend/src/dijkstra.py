@@ -1,13 +1,12 @@
 import heapq
 import math
-from count_distance import count_distance
 
 
 def dijkstra(graph, start, end):
     visited = set()
 
-    costs = {n[0]: math.inf for n in graph.edges}
-    paths = {n[0]: "" for n in graph.edges}
+    costs = {node: math.inf for node in graph.nodes}
+    paths = {node: "" for node in graph.nodes}
     costs[start] = 0
     paths[start] = str(start)
 
@@ -20,10 +19,12 @@ def dijkstra(graph, start, end):
             continue
         visited.add(node)
 
-        for edge in graph.edges(node):
-            neighbour = edge[1]
+        node_object = graph.nodes[node]
+        for edge in node_object.neighbours:
+            # print(edge)
+            neighbour = edge['id']
             current_length = costs[neighbour]
-            new_length = length + count_distance(graph, node, neighbour)
+            new_length = length + edge['length']
 
             if new_length < current_length:
                 costs[neighbour] = new_length
