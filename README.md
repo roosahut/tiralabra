@@ -1,5 +1,7 @@
 ## Comparison between Fringe search and Dijkstra
 
+![GHA workflow badge](https://github.com/roosahut/tiralabra/workflows/CI/badge.svg)
+
 This is a project for the Datastructures and Algorithms project course in the University of Helsinki.
 
 The goal is to compare two shortest path algorithms, Fringe search and Dijkstra. The original plan was to compare IDA* and Dijkstra but I changed it because IDA* was not working well for the massive graph from OpenStreetMap that I'm using in this project.
@@ -19,7 +21,7 @@ poetry run python3 backend/src/main.py
 ```
 This will open the backend in localhost:8000.
 
-And then to run the frontend open another terminal and go to the frontend folder and run these commands:
+And then to run the frontend (you need to have npm) open another terminal and go to the frontend folder and run these commands:
 ```bash
 npm install
 ```
