@@ -1,4 +1,4 @@
-from node import Node
+from src.node import Node
 
 # changing the networkx multi graph osmnx gives
 # from openstreetmap to a simpler graph to
