@@ -8,30 +8,30 @@ The goal is to compare two shortest path algorithms, Fringe search and Dijkstra.
 
 ### How to use
 
-I will de deploying the project to fly.io but right now you can use the app locally.
+The original plan was to deploy the app to fly.io, and I did it, but the app uses more memory than the free version of fly allows, so I most likely won't be doing that.
+
+But happily you can run the app locally too, and it doesn't take much.
 
 First you'll need to clone this repository.
 
-Then to run backend first you'll need to run these commands in the root of the repo:
+Then to run the app on localhost:8000 first you'll need to do this from the root.
+
+Move to the backend folder (where there is also a build of the frontend):
+```bash
+cd backend
+```
+Then you'll need to install poetry depedencies.
 ```bash
 poetry install
 ```
+And then run the app with
 ```bash
-poetry run python3 backend/src/main.py
+poetry run start
 ```
-This will open the backend in localhost:8000.
-
-And then to run the frontend (you need to have npm) open another terminal and go to the frontend folder and run these commands:
-```bash
-npm install
-```
-```bash
-npm start
-```
-This will open the frontend in localhost:3000.
+The app should open on localhost:8000 !
 
 The app works like this:
-So far the app works only in Helsinki, so click anywhere in Helsinki, and a marker will appear there, that is your starting point. Then click another place (still in Helsinki) and that is the goal place.
+The app works only in Helsinki, so click anywhere in Helsinki, and a marker will appear there, that is your starting point. Then click another place (still in Helsinki) and that is the goal place.
 You'll have to wait a bit, but the app will give you a route between the given points. It displays the route dijkstra has counted in red and the fringe search route in blue (note that they might be the same so it might only show blue). 
 After the routes have shown up you can choose another points in Helsinki and see the route between them.
 
