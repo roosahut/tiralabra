@@ -24,6 +24,10 @@ Then you'll need to install poetry depedencies.
 ```bash
 poetry install
 ```
+Go to the poetry shell
+```bash
+poetry shell
+```
 And then run the app with
 ```bash
 poetry run start
