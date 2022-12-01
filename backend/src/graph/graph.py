@@ -1,15 +1,28 @@
 from graph.node import Node
 
-# changing the networkx multi graph osmnx gives
-# from openstreetmap to a simpler graph to
-# help testing etc.
-
 
 class Graph:
+    """Changes the Networkx MultiGraph osmnx gives from the OpenStreetMap to a simpler graph
+        so the algorithms can be in simpler forms and testing will be easier.
+    """
+
     def __init__(self, G):
+        """The constructer.
+
+        Args:
+            G (networkx.MultiGraph): The graph osmnx takes from OpenStreetMap of Helsinki (stored in data dictionary).
+        """
         self.nodes = self.create_nodes(G)
 
     def create_nodes(self, G):
+        """Creates the nodes for the Graph object.
+
+        Args:
+            G (networkx.MultiGraph): Same as in constructor
+
+        Returns:
+            Return a dictionary with the node ids as keys and the Node objects as values.
+        """
         nodes = {}
         for node in G.nodes:
             lat = G.nodes[node]['y']
