@@ -1,6 +1,7 @@
 ## Comparison between Fringe search and Dijkstra
 
 ![GHA workflow badge](https://github.com/roosahut/tiralabra/workflows/CI/badge.svg)
+[![codecov](https://codecov.io/gh/roosahut/tiralabra/branch/main/graph/badge.svg?token=HY1aerZ5ob)](https://codecov.io/gh/roosahut/tiralabra)
 
 This is a project for the Datastructures and Algorithms project course in the University of Helsinki.
 
