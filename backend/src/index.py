@@ -1,8 +1,9 @@
 import pickle
+import osmnx as ox
 from graph.graph import Graph
 from algorithms.dijkstra import dijkstra
 from algorithms.fringe_search import fringe_search
-from latlng_node_changes import get_openstreetmap_node_from_latlng, change_node_route_to_latlng
+from latlng_node_changes import change_node_route_to_latlng
 
 
 def get_shortest_path(start, end):
@@ -22,6 +23,10 @@ def get_shortest_path(start, end):
 
     return fringe_in_latlng, dijkstra_inlatlng
 
+
+def get_openstreetmap_node_from_latlng(graph, position):
+    node = ox.nearest_nodes(graph, position[1], position[0])
+    return node
 
 #G = pickle.load(open('data/helsinki_graph.pickle', 'rb'))
 
