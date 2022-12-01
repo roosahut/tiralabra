@@ -3,6 +3,16 @@ import math
 
 
 def dijkstra(graph, start, end):
+    """The dijkstra path-finding algorithm.
+
+    Args:
+        graph (object): The Graph object that was created from the Networkx graph.
+        start (int): Start node.
+        end (int): End node.
+
+    Returns:
+        Returns a tuple where there is the calculated route and the cost in meters.
+    """
     visited = set()
 
     costs = {node: math.inf for node in graph.nodes}

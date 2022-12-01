@@ -5,6 +5,16 @@ EARTH_RADIUS = 6371000
 
 
 def fringe_search(graph, start, end):
+    """ The path-finding fringe search algorithm.
+
+    Args:
+        graph (object): The Graph object that was created from the Networkx graph.
+        start (int): Start node.
+        end (int): End node.
+
+    Returns:
+        Returns a tuple where there is the calculated route and the cost in meters.
+    """
     fringe = [start]
     cache = {node: None for node in graph.nodes}
     cache[start] = (0, None)
@@ -47,6 +57,13 @@ def fringe_search(graph, start, end):
 
 
 def reverse_path(cache, node, path):
+    """Reverses the path of the fringe search from it's cache.
+
+    Args:
+        cache (dict): The cache that was created when fringe search calculated the route.
+        node (int): The current node.
+        path (list): The counted route that this function builds.
+    """
     (g, parent) = cache[node]
     if parent != None:
         reverse_path(cache, parent, path)
@@ -54,6 +71,16 @@ def reverse_path(cache, node, path):
 
 
 def insert_child_after_node(fringe, node, child):
+    """Inserts the child node after the parent node in the fringe.
+
+    Args:
+        fringe (list): The fringe of the fringe search.
+        node (int): Current node.
+        child (int): The child of the current node.
+
+    Returns:
+        The fringe with the child node after the parent node.
+    """
     for i in range(len(fringe)):
         if fringe[i] == node:
             index = i + 1
@@ -63,6 +90,18 @@ def insert_child_after_node(fringe, node, child):
 
 
 def sort_edges(graph, node_object, end):
+    """Sorts the edges of the given node based on the heuristic
+    between the neighbour node and end node.
+
+    Args:
+        graph (object): The Graph object that was created from the Networkx graph.
+        node_object (object): The current Node object whom edges are sorted
+        end (int): The end node.
+
+    Returns:
+        A list of (neighbour_node, heuristic_to_end, length_between_neighbour_and_current)
+        values sorted by the smallest heuristic to end.
+    """
     estimates = []
     for edge in node_object.neighbours:
         neighbour = edge['id']
@@ -74,6 +113,18 @@ def sort_edges(graph, node_object, end):
 
 
 def count_distance(graph, start, end):
+    """The heuristic function that counts the straight line distance between two nodes
+    using the latitude and longitude of the nodes and maths to count distance
+    on earth between two given points.
+
+    Args:
+        graph (object): The Graph object that was created from the Networkx graph.
+        start (int): The start node.
+        end (int): The end node.
+
+    Returns:
+        The distance between the nodes in meters.
+    """
     start_object = graph.nodes[start]
     end_object = graph.nodes[end]
 
