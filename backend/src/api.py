@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
-from src.index import get_shortest_path
+from index import get_shortest_path
 
 app = FastAPI()
 
@@ -19,9 +19,7 @@ class Route(BaseModel):
 
 origins = [
     "http://localhost:3000",
-    "localhost:3000",
-    "http://tiralabra-paths.fly.dev",
-    "tiralabra-paths.fly.dev"
+    "localhost:3000"
 ]
 
 app.add_middleware(
@@ -42,4 +40,5 @@ def find_route(route_params: RoutePoints) -> Route:
             'dijkstra': dijkstra}
 
 
-app.mount('/', StaticFiles(directory='./src/build/', html=True), name='root')
+app.mount('/', StaticFiles(directory='./backend/src/build/',
+          html=True), name='root')

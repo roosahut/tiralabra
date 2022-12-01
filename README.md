@@ -16,10 +16,6 @@ First you'll need to clone this repository.
 
 Then to run the app on localhost:8000 first you'll need to do this from the root.
 
-Move to the backend folder (where there is also a build of the frontend):
-```bash
-cd backend
-```
 Then you'll need to install poetry depedencies.
 ```bash
 poetry install
@@ -30,7 +26,7 @@ poetry shell
 ```
 And then run the app with
 ```bash
-poetry run start
+poetry run invoke start
 ```
 The app should open on localhost:8000 !
 
