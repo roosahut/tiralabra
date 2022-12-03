@@ -14,6 +14,8 @@ The map data is downloaded with pythons OSMNX library which can download data fr
 
 [Definition document](https://github.com/roosahut/tiralabra/blob/main/documentation/definitiondocument.md)
 
+[Test document](https://github.com/roosahut/tiralabra/blob/main/documentation/test_document.md)
+
 [User guide](https://github.com/roosahut/tiralabra/blob/main/documentation/user_guide.md)
 
 ### Weekly reports
