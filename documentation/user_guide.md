@@ -17,7 +17,7 @@ But, thankfully, the app is easy to use locally too. You only need to do these f
 
 First you'll need to clone this repository.
 
-Then to run the app on localhost:8000 you'll need to do these steps from the root.
+Then to run the app on localhost:8000 in web you'll need to do these steps from the root.
 
 Install poetry depedencies
 ```bash
@@ -31,4 +31,4 @@ And then run the app with
 ```bash
 poetry run invoke start
 ```
-Then go to localhost:8000, and there it is! Remember to keep the terminal window open.
+Then go to localhost:8000 (web), and there it is! Remember to keep the terminal window open.
