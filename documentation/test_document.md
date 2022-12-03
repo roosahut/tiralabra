@@ -12,3 +12,14 @@ because it only uses functions from the other parts of the application logic tha
 (the one that get the nearest nodes from a given graph when it's given a wanted latitude and longitude), since that is also a part of the OSMNX library which is already tested, I don't see a point in testing that.
 
 Obliviosly I don't test the build in backend/src since it's only the build version of the frontend.
+
+## Doing the tests
+
+After installing the poetry depedencies (poetry install), you can run the unit tests like this:
+```bash
+poetry shell
+```
+and then
+```bash
+poetry run invoke test
+```

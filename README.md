@@ -16,6 +16,8 @@ The map data is downloaded with pythons OSMNX library which can download data fr
 
 [Test document](https://github.com/roosahut/tiralabra/blob/main/documentation/test_document.md)
 
+[Implementation document](https://github.com/roosahut/tiralabra/blob/main/documentation/implementation_document.md)
+
 [User guide](https://github.com/roosahut/tiralabra/blob/main/documentation/user_guide.md)
 
 ### Weekly reports
@@ -27,3 +29,5 @@ The map data is downloaded with pythons OSMNX library which can download data fr
 [Week 3](https://github.com/roosahut/tiralabra/blob/main/documentation/weeklyreports/weeklyreport3.md)
 
 [Week 4](https://github.com/roosahut/tiralabra/blob/main/documentation/weeklyreports/weeklyreport4.md)
+
+[Week 5](https://github.com/roosahut/tiralabra/blob/main/documentation/weeklyreports/weeklyreport5.md)
