@@ -31,4 +31,4 @@ And then run the app with
 ```bash
 poetry run invoke start
 ```
-Then go to localhost:8000 (web), and there it is! Remember to keep the terminal window open.
+Then go to [localhost:8000](http://localhost:8000), and there it is! Remember to keep the terminal window open.
