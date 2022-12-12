@@ -23,10 +23,14 @@ def get_shortest_path(start, end):
     start_node = get_openstreetmap_node_from_latlng(G, start)
     end_node = get_openstreetmap_node_from_latlng(G, end)
 
-    (path_fringe, cost_fringe) = fringe_search(graph, start_node, end_node)
-    (path_dijkstra, cost_dijkstra) = dijkstra(graph, start_node, end_node)
+    (path_fringe, cost_fringe, time_fringe) = fringe_search(
+        graph, start_node, end_node)
+    (path_dijkstra, cost_dijkstra, time_dijkstra) = dijkstra(
+        graph, start_node, end_node)
     print(f'fringe search cost: {cost_fringe}')
+    print(f'fringe search time: {time_fringe}')
     print(f'dijkstra cost: {cost_dijkstra}')
+    print(f'dijkstra time: {time_dijkstra}')
 
     fringe_in_latlng = change_node_route_to_latlng(graph, path_fringe)
     dijkstra_inlatlng = change_node_route_to_latlng(graph, path_dijkstra)

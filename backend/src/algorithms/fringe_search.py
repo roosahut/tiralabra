@@ -1,5 +1,6 @@
 import math
 from math import radians, cos, sin, asin, sqrt
+from timeit import default_timer as timer
 
 EARTH_RADIUS = 6371000
 
@@ -15,6 +16,8 @@ def fringe_search(graph, start, end):
     Returns:
         Returns a tuple where there is the calculated route and the cost in meters.
     """
+    start_time = timer()
+
     fringe = [start]
     cache = {node: None for node in graph.nodes}
     cache[start] = (0, None)
@@ -51,7 +54,7 @@ def fringe_search(graph, start, end):
     if found is True:
         path = []
         reverse_path(cache, end, path)
-        return path, cost
+        return (path, cost, timer() - start_time)
     return False
 
 
