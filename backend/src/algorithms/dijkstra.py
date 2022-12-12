@@ -14,7 +14,7 @@ def dijkstra(graph, start, end):
     Returns:
         Returns a tuple where there is the calculated route and the cost in meters.
     """
-    time_start = timer()
+    start_time = timer()
 
     visited = set()
 
@@ -45,4 +45,4 @@ def dijkstra(graph, start, end):
                     " " + str(neighbour)
                 heapq.heappush(min_dist, (new_length, neighbour))
 
-    return ([int(n) for n in paths[end].strip().split(" ")], costs[end], timer() - time_start)
+    return ([int(n) for n in paths[end].strip().split(" ")], costs[end], timer() - start_time)
