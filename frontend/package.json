@@ -11,8 +11,10 @@
     "parcel-bundler": "^1.12.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.7.1",
     "react-leaflet": "^4.1.0",
     "react-scripts": "5.0.1",
+    "rsuite": "^5.23.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

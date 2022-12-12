@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { MapContainer, TileLayer, Polyline, useMapEvents, Marker, Popup } from 'react-leaflet'
 import findRoute from './services/routes'
 
@@ -7,6 +7,10 @@ const App = () => {
   const [fringe, setFringe] = useState([])
   const [dijkstra, setDijkstra] = useState([])
   const [markers, setMarkers] = useState([])
+  const [algorithm, setAlgorithm] = useState('dijkstra')
+
+  const redOptions = { color: 'red' }
+  const blueOptions = { color: 'blue' }
 
   const Markers = () => {
     useMapEvents({
@@ -20,8 +24,14 @@ const App = () => {
           }
           findRoute(pointsObject)
             .then(returnedRoutes => {
+              if (algorithm === 'dijkstra') {
+                setDijkstra(returnedRoutes.dijkstra)
+              } else if (algorithm === 'fringe') {
+                setFringe(returnedRoutes.fringe)
+              } else {
               setFringe(returnedRoutes.fringe)
               setDijkstra(returnedRoutes.dijkstra)
+              }
             })
         } else if (markers.length === 2) {
           const newMarker = [event.latlng.lat, event.latlng.lng]
@@ -36,11 +46,21 @@ const App = () => {
     })
   }
 
-  const redOptions = { color: 'red' }
-  const blueOptions = { color: 'blue' }
-
   return (
-    <MapContainer center={[60.184136, 24.949670]} zoom={12} scrollWheelZoom={false}>
+    <div>
+      <div id='panel'>
+        <h2>Path-finding algorithms in Helsinki</h2>
+        <p>Choose what algorithm to use 
+          <select id="algo" name="algo" onChange={({ target }) => setAlgorithm(target.value)}>
+            <option value="dijkstra">Dijkstra</option>
+            <option value="fringe">Fringe search</option>
+            <option value="both">Both</option>
+          </select>
+        </p>
+        <p>Then to select the start and goal points click anywhere in Helsinki and the program will count the route based on your algorithm choice</p>
+        <p>Please note that you might have to wait a bit</p>
+      </div>
+      <MapContainer center={[60.184136, 24.949670]} zoom={12}>
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -56,6 +76,7 @@ const App = () => {
         </Marker>
       )}
     </MapContainer>
+    </div>
   )
 }
 

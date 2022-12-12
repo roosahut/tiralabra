@@ -24,4 +24,4 @@ def coverage_report(ctx):
 
 @task
 def lint(ctx):
-    ctx.run("pylint backend/src", pty=True)
+    ctx.run("pylint backend", pty=True)
