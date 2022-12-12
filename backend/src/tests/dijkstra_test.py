@@ -12,11 +12,11 @@ class TestGraph(unittest.TestCase):
     def test_dijkstra_returns_the_right_route(self):
         start_node = 1
         end_node = 7
-        (route, cost) = dijkstra(self.graph, start_node, end_node)
+        (route, cost, time) = dijkstra(self.graph, start_node, end_node)
         self.assertEqual(route, [1, 3, 5, 7])
 
     def test_dijkstra_returns_the_rigth_cost(self):
         start_node = 1
         end_node = 6
-        (route, cost) = dijkstra(self.graph, start_node, end_node)
+        (route, cost, time) = dijkstra(self.graph, start_node, end_node)
         self.assertEqual(cost, 3)
