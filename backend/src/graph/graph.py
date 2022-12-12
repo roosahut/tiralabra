@@ -7,15 +7,16 @@ class Graph:
     """
 
     def __init__(self, G):
-        """The constructer.
+        """The constructor.
 
         Args:
-            G (networkx.MultiGraph): The graph osmnx takes from OpenStreetMap of Helsinki (stored in data dictionary).
+            G (networkx.MultiGraph): The graph osmnx takes from
+            OpenStreetMap of Helsinki (stored in data dictionary).
         """
         self.nodes = self.create_nodes(G)
 
     def create_nodes(self, G):
-        """Creates the nodes for the Graph object.
+        """Creates    else: the nodes for the Graph object.
 
         Args:
             G (networkx.MultiGraph): Same as in constructor

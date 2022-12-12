@@ -1,0 +1,10 @@
+[MASTER]
+
+# ignore data and test dicts
+ignore=tests, data
+
+disable=C0103, # invalid name in snake style
+      C0114, # module docstring
+
+# fixing the issue that pylint does not recognize the imports
+init-hook='import sys; sys.path.append("backend/src/")'

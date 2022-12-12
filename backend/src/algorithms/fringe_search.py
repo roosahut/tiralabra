@@ -21,7 +21,7 @@ def fringe_search(graph, start, end):
     flimit = count_distance(graph, start, end)
     found = False
 
-    while found == False and len(fringe) > 0:
+    while found is False and len(fringe) > 0:
         fmin = math.inf
         for node in fringe:
             (g, parent) = cache[node]
@@ -37,7 +37,7 @@ def fringe_search(graph, start, end):
             for edge in sort_edges(graph, node_object, end):
                 child = edge[0]
                 g_child = g + edge[2]
-                if cache[child] != None:
+                if cache[child] is not None:
                     (g_cached, parent) = cache[child]
                     if g_child >= g_cached:
                         continue
@@ -48,12 +48,11 @@ def fringe_search(graph, start, end):
             fringe.remove(node)
         flimit = fmin
 
-    if found == True:
+    if found is True:
         path = []
         reverse_path(cache, end, path)
         return path, cost
-    else:
-        return False
+    return False
 
 
 def reverse_path(cache, node, path):
@@ -65,7 +64,7 @@ def reverse_path(cache, node, path):
         path (list): The counted route that this function builds.
     """
     (g, parent) = cache[node]
-    if parent != None:
+    if parent is not None:
         reverse_path(cache, parent, path)
     path.append(node)
 

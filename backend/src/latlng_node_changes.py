@@ -1,5 +1,5 @@
 def change_node_route_to_latlng(graph, route):
-    """Changes the route with nodes to the latitude and 
+    """Changes the route with nodes to the latitude and
     longitude points.
 
     Args:

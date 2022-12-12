@@ -47,34 +47,3 @@ def get_openstreetmap_node_from_latlng(graph, position):
     """
     node = ox.nearest_nodes(graph, position[1], position[0])
     return node
-
-#G = pickle.load(open('data/helsinki_graph.pickle', 'rb'))
-
-#start = (60.184136, 24.949670)
-#end = (60.186760, 24.978402)
-
-#start_node = get_openstreetmap_node_from_latlng(G, start)
-#end_node = get_openstreetmap_node_from_latlng(G, end)
-
-#graph = Graph(G)
-
-#print(dijkstra(graph, start_node, end_node))
-
-#print(fringe_search(graph, start_node, end_node))
-#print(ida_star(G, start_node, end_node))
-
-#graph = Graph(G)
-
-#print(ida_star(G, start_node, end_node))
-
-# Shows the graph with osmnx
-# fig, ax = ox.plot_graph(G, node_color='red', node_size=15,
-#                        node_zorder=2, node_edgecolor='k')
-
-# Shows the route and graph with osmnx
-#shortest_route_map = ox.plot_graph_route(G, my_dijstra)
-# shortest_route_map
-
-# Shows the map and the route with folium and then creates a html file that can be opened
-#shortest_route_map = ox.plot_route_folium(G, shortest_path)
-# shortest_route_map.save('route.html')
