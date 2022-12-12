@@ -1,3 +1,5 @@
+import pickle
+from graph.graph import Graph
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -30,12 +32,15 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
+G = pickle.load(open('./backend/data/helsinki_graph.pickle', 'rb'))
+graph = Graph(G)
+
 
 @app.post('/api/route')
 def find_route(route_params: RoutePoints) -> Route:
     print(f'got params {route_params}')
     values = get_shortest_path(
-        route_params.start, route_params.end)
+        route_params.start, route_params.end, graph, G)
     return values
 
 

@@ -1,12 +1,10 @@
-import pickle
 import osmnx as ox
-from graph.graph import Graph
 from algorithms.dijkstra import dijkstra
 from algorithms.fringe_search import fringe_search
 from latlng_node_changes import change_node_route_to_latlng
 
 
-def get_shortest_path(start, end):
+def get_shortest_path(start, end, graph, G):
     """The function that gives the api the route based on the given start and
     end points.
 
@@ -17,9 +15,6 @@ def get_shortest_path(start, end):
     Returns:
         Two lists of the routes calculated by dijkstra and fringe search.
     """
-    G = pickle.load(open('./backend/data/helsinki_graph.pickle', 'rb'))
-    graph = Graph(G)
-
     start_node = get_openstreetmap_node_from_latlng(G, start)
     end_node = get_openstreetmap_node_from_latlng(G, end)
 
