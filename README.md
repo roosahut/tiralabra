@@ -10,6 +10,8 @@ The goal is to compare two shortest path algorithms, Fringe search and Dijkstra.
 The backend is done with python and for the API I used is pythons FastAPI. The frontend is done with React.js and for the map I used React-leaflet.
 The map data is downloaded with pythons OSMNX library which can download data from OpenStreetMap. This app uses the map data (a graph) of Helsinki. You can find out how to use the app in the [user guide](https://github.com/roosahut/tiralabra/blob/main/documentation/user_guide.md).
 
+I deployed the app to fly.io, but it used too much memory for the free tier. I also though about using render but it needs more memory than it's free tier allows also. :( Thankfully the app is easy to use locally too!
+
 ### Documentation
 
 [Definition document](https://github.com/roosahut/tiralabra/blob/main/documentation/definitiondocument.md)
