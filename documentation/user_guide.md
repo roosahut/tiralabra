@@ -3,11 +3,13 @@
 
 ### How the app works
 
-The app will show you a map centered in helsinki. The routing works only in Helsinki, so click anywhere in Helsinki, and a marker will appear there: that is your starting point. Then click another place (still in Helsinki) and that is the goal place.
-You'll have to wait a bit, but the app will give you a route between the given points. It displays the route dijkstra has calculated in red and the fringe search route in blue (note that they might be the same so it might only show blue). 
-After the routes have shown up you can choose another points in Helsinki and see the route between them.
+The app will show you a map centered in Helsinki. You can choose which algorithm (or both) you want to use to count the route in the panle above the map. Then you can click anywhere in Helsinki and a marker will appear there: that is the starting point. Then click again in Helsinki to choose the goal point. It might take a while (please wait patiently), but the route/routes will appear there. In the panel it will also show how many meters the route is and how long did the algorithm take to count the route.
 
-I will be adding another features to the frontend but so far that is all there is.
+To try other start and end points just click on the map again (you can also change the algorithm).
+
+The first path-finding after opening the map might take longer because on that the app will download the massive graph.
+
+Dijkstra is the red line and Fringe search is the blue.
 
 ### How to use
 
@@ -32,3 +34,4 @@ And then run the app with
 poetry run invoke start
 ```
 Then go to [localhost:8000](http://localhost:8000), and there it is! Remember to keep the terminal window open.
+I know that right now I have the build of the frontend on GitHub and use it with that (even though that is not the best practise). I did that because I wanted to ensure that the people doing peer reviews on this project can start it even when they don't have npm installed on their computers.
