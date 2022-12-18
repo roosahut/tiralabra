@@ -20,3 +20,21 @@ Then it creates the Graph -object from the Networkx.MultiGraph format (OSMNX loa
 then the function calls for the Dijkstra and Fringe search algorithms to get the shortest paths and the costs of those paths. Since the algorithm gives the paths in nodes, the function calls for the function that changes the path of nodes to a path of latlng.
 
 The function returns the routes to the api.py POST route which return the routest back to frontend. Then the routes are displayed to the React-leaflet map.
+
+## Archieved time and space complexitys
+
+## Comparing the two algorithms
+
+After spending a lot of time on this projects and trying both algorithms in the map, I'll have to say that Dijkstra does seem to be better for this project. It is a lot more consistent in time and always gives either the same path as Fringe Search or a faster one.
+
+## Projects possible shortcomings and proposals for improvement
+
+I feel like I knew too little about Fringe Search, so I'm not entirely sure if I got it working exactly how it's suppoused to work. But to be honest I'm also happy with how it's working right now, because I couldn't get IDA* working at all, because the graph was too big and cyclic for it.
+
+Sometimes Fringe Search gets the same path Dijkstra does, but it takes it alot more time. Not once has Fringe search got a shorter path, it's always the same or longer than Dijkstras. I don't know if the problem is with my implementation or if the algorithm just doesn't work that well with big cyclic graphs (like IDA*).
+
+It would have been interesting to see how A* compares with both of these algorithms, since it's very close to both of them. I'm pretty sure it would have worked the best at least time-wise.
+
+## Sources
+
+[Fringe search article](https://webdocs.cs.ualberta.ca/~holte/Publications/fringe.pdf)

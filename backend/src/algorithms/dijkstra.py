@@ -34,7 +34,6 @@ def dijkstra(graph, start, end):
 
         node_object = graph.nodes[node]
         for edge in node_object.neighbours:
-            # print(edge)
             neighbour = edge['id']
             current_length = costs[neighbour]
             new_length = length + edge['length']
@@ -44,5 +43,7 @@ def dijkstra(graph, start, end):
                 paths[neighbour] = paths[node] + \
                     " " + str(neighbour)
                 heapq.heappush(min_dist, (new_length, neighbour))
+
+    print(f'dijkstras visited nodes: {len(visited)}')
 
     return ([int(n) for n in paths[end].strip().split(" ")], costs[end], timer() - start_time)

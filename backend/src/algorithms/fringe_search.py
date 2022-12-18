@@ -23,10 +23,12 @@ def fringe_search(graph, start, end):
     cache[start] = (0, None)
     flimit = count_distance(graph, start, end)
     found = False
+    visited_nodes = 0
 
     while found is False and len(fringe) > 0:
         fmin = math.inf
         for node in fringe:
+            visited_nodes += 1
             (g, parent) = cache[node]
             f = g + count_distance(graph, node, end)
             if f > flimit:
@@ -54,6 +56,7 @@ def fringe_search(graph, start, end):
     if found is True:
         path = []
         reverse_path(cache, end, path)
+        print(f'fringe visited nodes: {visited_nodes}')
         return (path, cost, timer() - start_time)
     return False
 

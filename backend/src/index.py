@@ -11,9 +11,11 @@ def get_shortest_path(start, end, graph, G):
     Args:
         start (tuple): Latitude and longitude of the start point.
         end (tuple): Latitude and longitude of the end point.
+        graph (object): The graph of Helsinki in the graph object.
+        G (Networkx.MultiGraph): The multigraph osmnx gives from OpenStreetMap.
 
     Returns:
-        Two lists of the routes calculated by dijkstra and fringe search.
+        Both algorithms routes, costs and time it took them.
     """
     start_node = get_openstreetmap_node_from_latlng(G, start)
     end_node = get_openstreetmap_node_from_latlng(G, end)

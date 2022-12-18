@@ -62,7 +62,7 @@ const App = () => {
             <option value="both">Both</option>
           </select>
         </p>
-        <p>Then to select the start and goal points click twice anywhere in Helsinki and the program will count the route with the algorithm chosen below</p>
+        <p>Then to select the start and goal points click twice anywhere in Helsinki and the program will count the route with the algorithm chosen above</p>
         <p>Please note that you might have to wait a bit</p>
         {algorithm === 'both' ?
           <div>
