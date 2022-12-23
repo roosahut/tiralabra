@@ -33,5 +33,6 @@ And then run the app with
 ```bash
 poetry run invoke start
 ```
-Then go to [localhost:8000](http://localhost:8000), and there it is! Remember to keep the terminal window open.
+Then go to [localhost:8000](http://localhost:8000), and there it is! Remember to keep the terminal window open. HOX!! Lately the app hasn't started rigth after starting the app and the terminal shows an error, but it will work when you refresh the browser a few times :)
+
 I know that right now I have the build of the frontend on GitHub and use it with that (even though that is not the best practise). I did that because I wanted to ensure that the people doing peer reviews on this project can start it even when they don't have npm installed on their computers.
