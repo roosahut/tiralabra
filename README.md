@@ -35,3 +35,5 @@ I deployed the app to fly.io, but it used too much memory for the free tier. I a
 [Week 5](https://github.com/roosahut/tiralabra/blob/main/documentation/weeklyreports/weeklyreport5.md)
 
 [Week 6](https://github.com/roosahut/tiralabra/blob/main/documentation/weeklyreports/weeklyreport6.md)
+
+[Final report](https://github.com/roosahut/tiralabra/blob/main/documentation/weeklyreports/finalreport.md)
