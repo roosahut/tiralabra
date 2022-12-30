@@ -4,7 +4,7 @@ from graph.graph import Graph
 from tests.fakemultigraph import FakeMultiGraph
 
 
-class TestGraph(unittest.TestCase):
+class TestLatLng(unittest.TestCase):
     def setUp(self):
         self.multigraph = FakeMultiGraph()
         self.graph = Graph(self.multigraph)
