@@ -14,7 +14,7 @@ def fringe_search(graph, start, end):
         end (int): End node.
 
     Returns:
-        Returns the calculated route, the cost in meters and the time 
+        Returns the calculated route, the cost in meters and the time
         the algorithm took finding the route.
     """
     start_time = timer()

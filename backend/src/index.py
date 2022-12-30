@@ -32,8 +32,11 @@ def get_shortest_path(start, end, graph, G):
     fringe_in_latlng = change_node_route_to_latlng(graph, path_fringe)
     dijkstra_inlatlng = change_node_route_to_latlng(graph, path_dijkstra)
 
-    return {'fringe': {'route': fringe_in_latlng, 'cost': round(cost_fringe, 2), 'time': round(time_fringe, 7)},
-            'dijkstra': {'route': dijkstra_inlatlng, 'cost': round(cost_dijkstra, 2), 'time': round(time_dijkstra, 7)}}
+    return {'fringe':
+            {'route': fringe_in_latlng, 'cost': round(
+                cost_fringe, 2), 'time': round(time_fringe, 7)},
+            'dijkstra':
+            {'route': dijkstra_inlatlng, 'cost': round(cost_dijkstra, 2), 'time': round(time_dijkstra, 7)}}
 
 
 def get_openstreetmap_node_from_latlng(graph, position):
