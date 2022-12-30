@@ -19,7 +19,7 @@ Dijkstra finds the shortest path always. Fringe search does too, most of the tim
 
 Here is a graph showing how much time both algorithms took when given same start and goal points. 
 
-![timecomparison](https://github.com/roosahut/tiralabra/tree/main/documentation/pictures/timecomparison.png)
+![timecomparison](https://github.com/roosahut/tiralabra/blob/main/documentation/pictures/timecomparison.png)
 
 As you can see, Fringe Search is faster when the distance is shorter, but gets a lot slower when the distance gets bigger.
 
