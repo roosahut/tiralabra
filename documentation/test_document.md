@@ -13,6 +13,18 @@ because it only uses functions from the other parts of the application logic tha
 
 Obliviosly I don't test the build in backend/src since it's only the build version of the frontend.
 
+## Performance testing
+
+Dijkstra finds the shortest path always. Fringe search does too, most of the time, but there are times when sometimes it gives a route that is longer than Dijkstra's. There is probably some problem with the algorithm, but it's the best implementation of Fringe Search I could do. As I said, it works right most of the time, and the closer the two points are to each other, the surer it is that it will work right.
+
+Here is a graph showing how much time both algorithms took when given same start and goal points. 
+
+![timecomparison](https://github.com/roosahut/tiralabra/tree/main/documentation/pictures/timecomparison.png)
+
+As you can see, Fringe Search is faster when the distance is shorter, but gets a lot slower when the distance gets bigger.
+
+Dijkstra stays mostly the same, because it visits all the nodes everytime, and only once, when Fringe Search might go over the same ones many times.
+
 ## Doing the tests
 
 After installing the poetry depedencies (poetry install), you can run the unit tests like this:
@@ -23,3 +35,5 @@ and then
 ```bash
 poetry run invoke test
 ```
+
+You can view the unit test coverage by clicking the codecov badge.

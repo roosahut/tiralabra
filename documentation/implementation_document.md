@@ -21,7 +21,7 @@ then the function calls for the Dijkstra and Fringe search algorithms to get the
 
 The function returns the routes to the api.py POST route which return the routest back to frontend. Then the routes are displayed to the React-leaflet map.
 
-## Archieved time and space complexitys
+## Archieved time and space complexities
 
 ## Comparing the two algorithms
 
